@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="./favicon.ico">
+    <script src="https://kit.fontawesome.com/f35ed0f645.js" crossorigin="anonymous"></script>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body class="w-full bg-neutral-50 border-b border-gray-200 dark:border-gray-700 dark:bg-zinc-950 dark:text-white";>
+    <header
+      class="border-b border-gray-200 dark:border-gray-700";
+     >
+      <nav class="flex flex-row justify-between items-center">
+        <div class="scale-100">
+          <a href="/">
+            <img alt="Leduxa logo" src="./cropped-Logo-leduxa-100x100.png">
+          </a>
+        </div>
+
+        <!-- nav items -->
+        <div class="flex gap-[5rem]" id="nav">
+          <a class="nav-item" href="/" id="brand">Brand</a>
+          <a class="nav-item" href="/us" id="us">Us</a>
+          <a class="nav-item" href="/contact" id="contact">Contact</a>
+        </div>
+
+        <!-- fb -->
+        <div class="mr-4">
+          <a target="_blank" href="https://www.facebook.com/LEDUXALED">
+            <i class="fab fa-facebook text-gradient" style="font-size: 40px;"></i>
+          </a>
+        </div>
+      </nav>
+  </header>
+
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+
+  <footer class="w-full bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-black dark:text-white">
+  </footer>
+</html>
+
+<script setup>
+// const navItems = document.querySelector('#nav');
+// navItems.addEventListener('click', function(e) {
+  // e.preventDefault();
+  // for (const child of navItems.children) {
+  //   child.classList.remove('active');
+  // }
+  // console.log(e.target.id);
+  // e.target.id == nav ? '' : e.target.classList.add('active');
+// })
+</script>
+
+<style scoped>
+/* NAV */
+.nav-item {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.nav-item::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 3px;
+  position: relative;
+  top: 37px;
+  background: black;
+}
+
+.nav-item:hover {
+  font-weight: 700;
+  background-color: black;
+  background-image: var(--gradient-text);
+  background-size: 100%;
+  background-repeat: repeat;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+.nav-item:hover::after {
+  content: '';
+  display: block;
+  width: 100%;
+  background: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);
+  transition: all 0.5s ease-in;
+}
+
+/* HEADINGS */
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.8rem;
+}
+
+/* FORM ELEMENTS */
+input, textarea {
+  color: var(--main-text);
+  border-color: var(--main-text);
+  border-width: 1px;
+  border-radius: 5px;
+  font-weight: 600;
+  padding: 1rem;
+}
+
+input:focus, textarea:focus {
+  border-width: 4px;
+  /* border-style: inset; */
+}
+
+label {
+  color: var(--secondary-text);
+  font-weight: 600;
+}
+
+/* FOOTER */
+footer {
+  position: absolute;
+  bottom: 0;
+}
+</style>
