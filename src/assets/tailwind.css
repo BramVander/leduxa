@@ -6,10 +6,94 @@
 
 @layer components {
     /* write custom classes here */
+    section {
+        padding: 1rem;
+        margin-bottom: 4rem;
+    }
+
+    hr {
+        width: 50%;
+        height: 0px;
+        display: block;
+        position: relative;
+        padding: 2em 0;
+        border: none;
+        margin: auto;
+        margin-bottom: 4rem;
+    }
+
+    hr::before,
+    hr::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 50%;
+        left: 0;
+    }
+
+    hr::before {
+        background: linear-gradient( 90deg, #10111F 0%, #10111F 50%, transparent 50%, transparent 100% );
+        background-size: 15px;
+        background-position: center;
+        z-index: 1;
+    }
+
+    hr::after {
+        transition: opacity 0.3s ease, animation 0.3s ease;
+
+        background: linear-gradient(
+            to right, 
+            #62efab 5%, 
+            #F2EA7D 15%, 
+            #F2EA7D 25%, 
+            #FF8797 35%, 
+            #FF8797 45%, 
+            #e1a4f4 55%, 
+            #e1a4f4 65%, 
+            #82fff4 75%, 
+            #82fff4 85%, 
+            #62efab 95%);
+
+        background-size: 200%;
+        background-position: 0%;
+        animation: divider 15s linear infinite;
+    }
+    @keyframes divider {
+        0% { background-position: 0%; }
+        100% { background-position: 200%; }
+    }
+    
+    .router-link-exact-active {
+        background: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+    }
+
     .text-gradient {
         /* fallback */
         background-color: #0a0a0a;
         background-image: var(--gradient-text);
+        background-size: 100%;
+        background-repeat: repeat;
+
+        font-weight: 700;
+        width: fit-content;
+
+        /* use text to mask background */
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+    }
+
+    .text-letter {
+        background-color: #0a0a0a;
+        background-image: var(--gradient-letter);
         background-size: 100%;
         background-repeat: repeat;
 
@@ -22,18 +106,15 @@
         -moz-background-clip: text;
         -moz-text-fill-color: transparent;
     }
-
-    .box {
-        width: fit-content;
-        align-items: center;
-        border: 1px solid gray;
-        border-radius: 5px;
-        padding: 2rem;
-        margin: 1rem;
-    }
     
     .btn-primary {
         @apply text-white font-medium p-2 rounded-md bg-indigo-600 hover:bg-indigo-500;
+    }
+    .btn-success {
+        @apply text-white font-medium p-2 rounded-md bg-emerald-600 font-bold;
+    }
+    .btn-fail {
+        @apply text-white font-medium p-2 rounded-md bg-red-600 font-bold;
     }
 
     @media(min-width: 1024px) {
@@ -42,9 +123,16 @@
         }
     }
 
-    @media(max-width: 1024px) {
+    @media(max-width: 768px) {
         .hide-mobile {
             display: none;
+        }
+
+        .stack-mobile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
     }
 }
